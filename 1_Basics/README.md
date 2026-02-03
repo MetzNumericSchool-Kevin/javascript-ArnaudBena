@@ -54,7 +54,7 @@ Déclare les variables pour ta boutique de potions :
 
 Affiche dans la console les informations de ta boutique avec `console.log`.
 
-### Exercice 2 : Affichage conditionnel
+### Exercice 2 : Affichage conditionnele
 
 **Fichier** : `exercices/02_affichage_conditionnel.js`
 
