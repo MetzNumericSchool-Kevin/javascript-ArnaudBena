@@ -6,7 +6,7 @@ const nom_sorcier = "Archibald";
 let stock_potion_soin = 10;
 let prix_potion_soin = 50;
 
-let choix = Number.parseInt(prompt("Bienvenue dans mon humble boutique Aventurier. Que veux-tu savoir ? 🤔\n1. Le nom de la boutique\n2. Le nom du Sorcier\n3. Le prix d'un potion de soin\n4. La quantité d'une potion de soin")) 
+let choix = parseInt(prompt("Bienvenue dans mon humble boutique Aventurier. Que veux-tu savoir ? 🤔\n1. Le nom de la boutique\n2. Le nom du Sorcier\n3. Le prix d'un potion de soin\n4. La quantité d'une potion de soin")) 
 
 switch (choix) {
     case 1:
