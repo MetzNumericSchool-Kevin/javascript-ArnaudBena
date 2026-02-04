@@ -31,12 +31,16 @@ const inventaire = [
 // ✍️ TON CODE ICI
 // Crée ta fonction salutations() ci-dessous
 
+function salutations(nom_sorcier) {
+  console.log(`Salutations Aventurier ! Je me nomme ${nom_sorcier} pour vous servir`)
+}
+
 
 
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 1 ===");
-// salutations(nom_sorcier);
+console.log("=== EXERCICE 1 ===");
+salutations(nom_sorcier);
 
 
 // ============================================
