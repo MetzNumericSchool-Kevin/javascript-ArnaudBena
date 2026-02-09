@@ -17,6 +17,16 @@ const inventaire = [
   {
     id: "potion_soin", // identifiant unique de la potion
     prix: 10,
+    stock: 2,
+  },
+    {
+    id: "potion_mana", // identifiant unique de la potion
+    prix: 20,
+    stock: 2,
+  },
+      {
+    id: "potion_force", // identifiant unique de la potion
+    prix: 50,
     stock: 0,
   },
 ];
@@ -111,25 +121,25 @@ function fabriquerPotion(id, prix, stock) {
 // Crée ta fonction ajouterPotion() ci-dessous
 
 
-function ajouterPotion(inventaire, nouvellePotion) {
-  const potionExistante = inventaire.find(potion => potion.id === nouvellePotion.id);
+// function ajouterPotion(inventaire, nouvellePotion) {
+//   const potionExistante = inventaire.find(potion => potion.id === nouvellePotion.id);
 
-      if (potionExistante) {
-        potionExistante.stock += nouvellePotion.stock
-        potionExistante.prix = nouvellePotion.prix
-      } else {
-        inventaire.push(nouvellePotion)
-      }
-  }
+//       if (potionExistante) {
+//         potionExistante.stock += nouvellePotion.stock
+//         potionExistante.prix = nouvellePotion.prix
+//       } else {
+//         inventaire.push(nouvellePotion)
+//       }
+//   }
 
 
 // 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 4 ===");
-const nouvellePotion = fabriquerPotion("potion_mana", 20, 3);
-const nouvellePotion2 = fabriquerPotion("potion_soin", 25,3)
-ajouterPotion(inventaire, nouvellePotion);
-ajouterPotion(inventaire,nouvellePotion2)
-console.log("Inventaire après ajout:", inventaire);
+// console.log("=== EXERCICE 4 ===");
+// const nouvellePotion = fabriquerPotion("potion_mana", 20, 3);
+// const nouvellePotion2 = fabriquerPotion("potion_soin", 25,3)
+// ajouterPotion(inventaire, nouvellePotion);
+// ajouterPotion(inventaire,nouvellePotion2)
+// console.log("Inventaire après ajout:", inventaire);
 
 
 // ============================================
@@ -141,14 +151,22 @@ console.log("Inventaire après ajout:", inventaire);
 // ✍️ TON CODE ICI
 // Crée tes fonctions getPotionsEnStock() et getPotionsEnRupture() ci-dessous
 
+function getPotionsEnStock(inventaire) {
+  const enStock = inventaire.filter((potion) => potion.stock > 0)
+  return enStock;
+}
 
+function getPotionsEnRupture(inventaire) {
+  const enRupture = inventaire.filter((potion) => potion.stock === 0)
+  return enRupture;
+}
 
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 5 ===");
-// console.log("Inventaire complet:", inventaire);
-// console.log("Potions en stock:", getPotionsEnStock(inventaire));
-// console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
+console.log("=== EXERCICE 5 ===");
+console.log("Inventaire complet:", inventaire);
+console.log("Potions en stock:", getPotionsEnStock(inventaire));
+console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
 
 
 // ============================================
