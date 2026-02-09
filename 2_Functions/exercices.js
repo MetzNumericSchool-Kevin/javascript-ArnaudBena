@@ -31,16 +31,14 @@ const inventaire = [
 // ✍️ TON CODE ICI
 // Crée ta fonction salutations() ci-dessous
 
-function salutations(nom_sorcier) {
-  console.log(`Salutations Aventurier ! Je me nomme ${nom_sorcier} pour vous servir`)
-}
+// function salutations(nom_sorcier) {
+//   console.log(`Salutations Aventurier ! Je me nomme ${nom_sorcier} pour vous servir`)
+// }
 
 
-
-
-// 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 1 ===");
-salutations(nom_sorcier);
+// // 🧪 TESTS - Décommente pour tester
+// console.log("=== EXERCICE 1 ===");
+// salutations(nom_sorcier);
 
 
 // ============================================
@@ -52,7 +50,22 @@ salutations(nom_sorcier);
 // ✍️ TON CODE ICI
 // Crée ta fonction calculerPrixTotal() ci-dessous
 
+function calculerPrixTotal(id, inventaire, quantite) {
+  for (potion of inventaire) {
+    if (id === "potion_soin") {
+      return potion.prix * quantite
+    }
+    else {
+     return "Potion non trouvé ou Calcul impossible"
+    }
+  }
+}
 
+const prix = calculerPrixTotal("potion_soin", inventaire, 4)
+console.log(prix)
+
+
+console.dir(document)
 
 
 // 🧪 TESTS - Décommente pour tester
