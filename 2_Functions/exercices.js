@@ -50,22 +50,22 @@ const inventaire = [
 // ✍️ TON CODE ICI
 // Crée ta fonction calculerPrixTotal() ci-dessous
 
-function calculerPrixTotal(id, inventaire, quantite) {
-  for (potion of inventaire) {
-    if (id === "potion_soin") {
-      return potion.prix * quantite
-    }
-    else {
-     return "Potion non trouvé ou Calcul impossible"
-    }
-  }
-}
+// function calculerPrixTotal(id, inventaire, quantite) {
+//   for (potion of inventaire) {
+//     if (id === "potion_soin") {
+//       return potion.prix * quantite
+//     }
+//     else {
+//      return "Potion non trouvé ou Calcul impossible"
+//     }
+//   }
+// }
 
-const prix = calculerPrixTotal("potion_soin", inventaire, 4)
-console.log(prix)
+// const prix = calculerPrixTotal("potion_soin", inventaire, 4)
+// console.log(prix)
 
 
-console.dir(document)
+// console.dir(document)
 
 
 // 🧪 TESTS - Décommente pour tester
@@ -83,15 +83,23 @@ console.dir(document)
 // ✍️ TON CODE ICI
 // Crée ta fonction fabriquerPotion() ci-dessous
 
-
+function fabriquerPotion(id, prix, stock) {
+  if (id && prix && stock) {
+    return {
+      id: id,
+      prix: prix,
+      stock: stock
+    }
+  }
+}
 
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 3 ===");
-// const potion1 = fabriquerPotion("potion_mana", 15, 5);
-// console.log(potion1);
-// const potion2 = fabriquerPotion("potion_force");
-// console.log(potion2);
+console.log("=== EXERCICE 3 ===");
+const potion1 = fabriquerPotion("potion_mana", 15, 5);
+console.log(potion1);
+const potion2 = fabriquerPotion("potion_force", 20, 10);
+console.log(potion2);
 
 
 // ============================================
