@@ -153,3 +153,5 @@ const potions = [
 // Pour chaque potion, vérifie si le nom ou la description contient le texte recherché
 // Affiche/cache les potions avec classList.add/remove('hidden')
 // Affiche le nombre de résultats et le message "Aucune potion trouvée" si besoin
+
+

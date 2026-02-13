@@ -10,6 +10,8 @@ const formChoixEpoqueHtml = document.querySelector(".form__choix_epoque");
 const formRechercheArtefact = document.querySelector(
   ".form__recherche_artefact",
 );
+const rechercheEnCours = document.querySelector(".recherche_en_cours")
+const voyage_en_cours = document.querySelector(".voyage_en_cours")
 
 const creerLesChoixEpoque = (epoques) => {
   const selectHtml = formChoixEpoqueHtml.querySelector("select");
@@ -88,15 +90,28 @@ let nomEpoqueActuelle;
 // Crée la fonction voyagerTemps(destination, callback)
 // Utilise setTimeout() avec generationNombreAleatoireEntre(1000, 3000)
 
+function voyagerTemps(destination, callback) {
+  // console.log("Voyage en cours vers : ", destination)
+  const nombreAleatoire = generationNombreAleatoireEntre(1000, 3000)
+  localisationEpoqueHTML.style.display = "none"
+  voyage_en_cours.style.display = "block"
+  setTimeout(() =>  {
+    // console.log("Arrivée à l'époque : ", destination)
+    callback(destination)
+    localisationEpoqueHTML.style.display = "block"
+    voyage_en_cours.style.display = "none"
+  }, nombreAleatoire)
+}
+
 // Fonction appelée quand le formulaire de voyage temporel est envoyé
 function quandEpoqueChoisie(nomEpoque) {
   nomEpoqueActuelle = nomEpoque;
   console.log(nomEpoqueActuelle);
-
   // ✍️ TON CODE ICI
   // Utilise voyagerTemps() ici
   // Avant le voyage : cache .localisation_epoque et affiche .voyage_en_cours
   // Après le voyage (callback) : cache le loader et appelle afficherDestination()
+  voyagerTemps(nomEpoqueActuelle, afficherDestination)
 }
 
 // ============================================
@@ -109,15 +124,31 @@ function quandEpoqueChoisie(nomEpoque) {
 // Crée la fonction collecterArtefact(nomArtefact, callback)
 // Le callback reçoit true ou false selon le succès
 
+function collecterArtefact(nomArtefact, callback) {
+  // const nomArtefact = "Le REMY"
+  const delaiAleatoire = generationNombreAleatoireEntre(1000, 3000)
+  setTimeout(() =>  {
+    const nombreAleatoire = Math.random() * 100
+    const success = nombreAleatoire >= 50
+    callback(nomArtefact, success)
+  }, delaiAleatoire)
+}
+
 // Fonction appelée quand le formulaire de recherche d'artefact est envoyé
 function quandRechercheArtefact(artefact) {
   console.log(artefact);
+  rechercheEnCours.style.display = "block"
+  collecterArtefact(artefact, function (success){
+    rechercheEnCours.style.display = "none"
+    afficherRechercheArtefact({artefact, epoque: nomEpoqueActuelle, success})
+  })
 
   // ✍️ TON CODE ICI
   // Utilise collecterArtefact() ici
   // Avant : affiche .recherche_en_cours
   // Après (callback) : cache le loader et appelle afficherRechercheArtefact()
 }
+
 
 // ============================================
 // EXERCICE 3 : La Mission Temporelle Complexe 🔗
@@ -128,6 +159,27 @@ function quandRechercheArtefact(artefact) {
 // ✍️ TON CODE ICI
 // Crée la fonction missionTemporelleComplexe()
 // Exécute la séquence : medievale → épée chevalier → romaine → bouclier romain → épée romaine
+
+const missionTemporelleComplexe = () => {
+  console.log("Début de la mission complexe")
+  voyagerTemps("medievale", (nomEpoque) => {
+    console.log("Je vais à l'époque :", nomEpoque) 
+    collecterArtefact("épée de chevalie", (artefact, success) => {
+      console.log("Je collecte : ", success ? artefact : "Collecte échouée de l'artéfact :",artefact) 
+      voyagerTemps("romaine", (nomEpoque) => {
+        console.log("Je vais à l'époque :", nomEpoque) 
+        collecterArtefact("bouclier romain", (artefact, success) => {
+          console.log("Je collecte : ", success ? artefact : "Collecte échouée de l'artéfact :",artefact)
+          collecterArtefact("épée romaine", (artefact, success) => {
+            console.log("Je collecte : ", success ? artefact : "Collecte échouée de l'artéfact :",artefact);
+          })
+        })
+      })
+    })
+  })
+};
+
+missionTemporelleComplexe();
 
 // ============================================
 // EXERCICE 4 : Je te promets des voyages sans tracas ! 🤝

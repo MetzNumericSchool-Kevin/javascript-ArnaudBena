@@ -151,22 +151,22 @@ function fabriquerPotion(id, prix, stock) {
 // ✍️ TON CODE ICI
 // Crée tes fonctions getPotionsEnStock() et getPotionsEnRupture() ci-dessous
 
-function getPotionsEnStock(inventaire) {
-  const enStock = inventaire.filter((potion) => potion.stock > 0)
-  return enStock;
-}
+// function getPotionsEnStock(inventaire) {
+//   const enStock = inventaire.filter((potion) => potion.stock > 0)
+//   return enStock;
+// }
 
-function getPotionsEnRupture(inventaire) {
-  const enRupture = inventaire.filter((potion) => potion.stock === 0)
-  return enRupture;
-}
+// function getPotionsEnRupture(inventaire) {
+//   const enRupture = inventaire.filter((potion) => potion.stock === 0)
+//   return enRupture;
+// }
 
 
-// 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 5 ===");
-console.log("Inventaire complet:", inventaire);
-console.log("Potions en stock:", getPotionsEnStock(inventaire));
-console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
+// // 🧪 TESTS - Décommente pour tester
+// console.log("=== EXERCICE 5 ===");
+// console.log("Inventaire complet:", inventaire);
+// console.log("Potions en stock:", getPotionsEnStock(inventaire));
+// console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
 
 
 // ============================================
@@ -179,10 +179,25 @@ console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
 // ✍️ TON CODE ICI
 // Crée ta fonction fabriquerPotionAvecIngredients() ci-dessous
 
+// function fabriquerPotionAvecIngredients(id, ingredients, prix = 10, stock = 1) {
+//   if (!manuel_de_fabrication[id]) {
+//     return new Error("Cette potion n'existe pas")
+//   }
+//   const ingredients_requis = manuel_de_fabrication[id].ingredients
+//   for (let ingredient of ingredients_requis)
+//   if (!ingredients.includes(ingredient)) {
+//     return new Error("Il manque des ingrédients à cette potion")
+//   }
+//   return {
+//     id: id, 
+//     prix: prix, 
+//     tock: stock
+//   }
+// }
 
 
 
-// 🧪 TESTS - Décommente pour tester
+// // 🧪 TESTS - Décommente pour tester
 // console.log("=== EXERCICE 6 ===");
 // // Test avec tous les ingrédients
 // const resultat1 = fabriquerPotionAvecIngredients(
@@ -197,7 +212,7 @@ console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
 //   console.log("✅ Potion créée:", resultat1);
 //   ajouterPotion(inventaire, resultat1);
 // }
-//
+
 // // Test avec ingrédients manquants
 // const resultat2 = fabriquerPotionAvecIngredients(
 //   "potion_soin",
@@ -222,7 +237,7 @@ console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
 // ✍️ TON CODE ICI
 // Crée ta fonction fabriquerPotionAvecDelai() ci-dessous
 
-
+function fabriquerPotionAvecDelai() {}
 
 
 // 🧪 TESTS - Décommente pour tester
